@@ -1,6 +1,6 @@
-/**
+/*
  * jVT220 - Java VT220 terminal emulator.
- * 
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -9,7 +9,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -128,9 +128,9 @@ public interface ITerminalFrontend
    * Sets the terminal dimensions in pixels.
    * 
    * @param width
-   *          the new width in pixels, > 0;
+   *          the new width in pixels, greater than 0;
    * @param height
-   *          the new height in pixels, > 0.
+   *          the new height in pixels, greater than 0.
    */
   void setSize( int width, int height );
 
@@ -159,9 +159,9 @@ public interface ITerminalFrontend
    * changed.
    * 
    * @param columns
-   *          the new number of columns, > 0;
+   *          the new number of columns, greater than 0;
    * @param alines
-   *          the new number of lines, > 0.
+   *          the new number of lines, greater than 0.
    */
   void terminalSizeChanged( int columns, int alines );
 

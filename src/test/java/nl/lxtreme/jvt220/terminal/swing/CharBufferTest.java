@@ -1,4 +1,4 @@
-/**
+/*
  * jVT220 - Java VT220 terminal emulator.
  *
  * (C) Copyright 2012 - J.W. Janssen, <j.w.janssen@lxtreme.nl>.
@@ -19,7 +19,7 @@ public class CharBufferTest extends TestCase
   // METHODS
 
   /**
-   * Tests that calling {@link CharBuffer#append(java.util.List)} with a
+   * Tests that calling {@link CharBuffer#append(Integer...)} with a
    * non-null value succeeds.
    */
   public void testAppendNotNullOk()
@@ -34,7 +34,7 @@ public class CharBufferTest extends TestCase
   }
 
   /**
-   * Tests that calling {@link CharBuffer#append(java.util.List)} with a null
+   * Tests that calling {@link CharBuffer#append(Integer...)} with a null
    * value fails.
    */
   public void testAppendNullFail()
@@ -51,7 +51,7 @@ public class CharBufferTest extends TestCase
   }
 
   /**
-   * Tests that calling {@link CharBuffer#append(java.util.List)} with a
+   * Tests that calling {@link CharBuffer#append(Integer...)} with a
    * non-null value succeeds.
    */
   public void testAppendWillResizeInternalArrayOk()

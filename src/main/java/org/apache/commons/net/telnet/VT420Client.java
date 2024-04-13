@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import javax.net.SocketFactory;
 
 /**
- * The propose of this class is to have the ability to customize the outputStream that TelnetClient
+ * The purpose of this class is to have the ability to customize the outputStream that TelnetClient
  * uses. The outputStream behaviour is modified in order to fulfill Telnet bytes when sending '\r'.
  * Currently, TelnetClient is sending after '\r' an '\u0000'.
  */

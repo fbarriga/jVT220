@@ -1,6 +1,6 @@
-/**
+/*
  * jVT220 - Java VT220 terminal emulator.
- * 
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -9,7 +9,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -47,14 +47,14 @@ public interface ICursor extends Cloneable
   /**
    * Returns the X-position of the cursor.
    * 
-   * @return a X-position, >= 0.
+   * @return a X-position, greater than or equal to 0.
    */
   int getX();
 
   /**
    * Returns the Y-position of the cursor.
    * 
-   * @return a Y-position, >= 0.
+   * @return a Y-position, greater than or equal to 0.
    */
   int getY();
 

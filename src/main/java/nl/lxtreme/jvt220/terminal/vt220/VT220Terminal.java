@@ -1,6 +1,6 @@
-/**
+/*
  * jVT220 - Java VT220 terminal emulator.
- * 
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -9,7 +9,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -25,13 +25,11 @@ import static java.awt.event.KeyEvent.*;
 import static nl.lxtreme.jvt220.terminal.vt220.VT220Parser.*;
 
 import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.event.InputEvent;
 import java.io.IOException;
 import nl.lxtreme.jvt220.terminal.ITerminalFrontend;
 import nl.lxtreme.jvt220.terminal.vt220.CharacterSets.CharacterSet;
 import nl.lxtreme.jvt220.terminal.vt220.CharacterSets.GraphicSet;
-import nl.lxtreme.jvt220.terminal.vt220.VT220Parser.*;
 
 
 /**
@@ -621,9 +619,9 @@ public class VT220Terminal extends AbstractTerminal implements VT220ParserHandle
    * Creates a new {@link VT220Terminal} instance.
    * 
    * @param columns
-   *          the initial number of columns in this terminal, > 0;
+   *          the initial number of columns in this terminal, greater than 0;
    * @param lines
-   *          the initial number of lines in this terminal, > 0.
+   *          the initial number of lines in this terminal, greater than 0.
    */
   public VT220Terminal( final int columns, final int lines )
   {
@@ -2277,8 +2275,6 @@ public class VT220Terminal extends AbstractTerminal implements VT220ParserHandle
   /**
    * IND moves the cursor down one line in the same column. If the cursor is at
    * the bottom margin, the screen performs a scroll-up.
-   * 
-   * @param aTermState
    */
   private int handleIND( final int index )
   {
@@ -2297,8 +2293,6 @@ public class VT220Terminal extends AbstractTerminal implements VT220ParserHandle
   /**
    * NEL moves the cursor to the first position on the next line. If the cursor
    * is at the bottom margin, the screen performs a scroll-up.
-   * 
-   * @param aTermState
    */
   private int handleNEL( int index )
   {
@@ -2317,8 +2311,6 @@ public class VT220Terminal extends AbstractTerminal implements VT220ParserHandle
   /**
    * RI moves the cursor up one line in the same column. If the cursor is at the
    * top margin, the screen performs a scroll-down.
-   * 
-   * @param aTermState
    */
   private int handleRI( int index )
   {
@@ -2358,9 +2350,6 @@ public class VT220Terminal extends AbstractTerminal implements VT220ParserHandle
     m_graphicSetState.overrideGL( 3 );
   }
 
-  /**
-   * @param aTermState
-   */
   private void handleTabSet( int index )
   {
     getTabulator().set( ( index % getWidth() ) );

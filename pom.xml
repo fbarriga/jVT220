@@ -4,27 +4,26 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.stephanemartin</groupId>
+  <groupId>cl.felipebarriga</groupId>
   <artifactId>jvt220</artifactId>
-  <version>1.3.3-SNAPSHOT</version>
+  <version>1.3.3</version>
+  <packaging>jar</packaging>
 
   <name>${project.artifactId}</name>
-  <description>This is a fork of https://github.com/jawi/jVT220/</description>
-  <url>https://github.com/stephanemartin/jvt220</url>
+  <description>Java VT220 terminal emulator</description>
+  <url>https://github.com/fbarriga/jvt220</url>
 
   <licenses>
     <license>
       <name>The Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
   
   <developers>
     <developer>
-      <name>stephane martin</name>
-      <email>s.martin@tricentis.com</email>
-      <organization>Tricentis</organization>
-      <organizationUrl>https://www.tricentis.com/</organizationUrl>
+      <name>Felipe Barriga Richards</name>
+      <email>felipe@felipebarriga.cl</email>
     </developer>
   </developers>
   
@@ -34,81 +33,51 @@
   </properties>
 
   <scm>
-    <connection>scm:git:git@github.com:stephanemartin/jVT220.git</connection>
-    <developerConnection>scm:git:git@github.com:stephanemartin/jVT220.git</developerConnection>
-    <url>https://github.com/stephanemartin/jVT220</url>
+    <url>https://github.com/fbarriga/jVT220/tree/main</url>
+    <connection>scm:git:git@github.com:fbarriga/jVT220.git</connection>
+    <developerConnection>scm:git:git@github.com:fbarriga/jVT220.git</developerConnection>
   </scm>
 
   <distributionManagement>
     <repository>
       <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/stephanemartin/maven</url>
+      <url>https://maven.pkg.github.com/fbarriga/jVT220</url>
     </repository>
   </distributionManagement>
 
-
   <dependencies>
+
+    <!-- This dependency has a security vulnerability, in order to update it
+    we also need to modify VT420Client -->
     <dependency>
       <groupId>commons-net</groupId>
       <artifactId>commons-net</artifactId>
-      <version>3.6</version>
-
+      <version>3.7</version>
     </dependency>
+
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.8.1</version>
+      <version>3.14.0</version>
     </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.7.26</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>1.2.3</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>2.28.2</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.xmlunit</groupId>
-      <artifactId>xmlunit-assertj</artifactId>
-      <version>2.6.3</version>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>us.abstracta</groupId>
-      <artifactId>wiresham</artifactId>
-      <version>0.3</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-shade-plugin</artifactId>
-      <version>3.2.4</version>
-    </dependency>
+
   </dependencies>
+
   <build>
     <pluginManagement>
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.21.0</version>
+          <version>3.2.5</version>
           <configuration>
             <!-- avoid issue with jdk 11 -->
             <useSystemClassLoader>false</useSystemClassLoader>
@@ -157,7 +126,6 @@
       </plugin>
     </plugins>
   </build>
-  
   <profiles>
     <profile>
       <id>release</id>
@@ -166,40 +134,49 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
-            <version>3.0.1</version>
+            <version>3.3.1</version>
             <executions>
               <execution>
                 <id>attach-sources</id>
+                <phase>prepare-package</phase>
                 <goals>
-                  <goal>jar</goal>
+                  <goal>jar-no-fork</goal>
                 </goals>
               </execution>
             </executions>
           </plugin>
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <version>3.0.1</version>
             <executions>
               <execution>
-                <id>attach-javadocs</id>
+                <id>attach-javadoc</id>
+                <phase>package</phase>
                 <goals>
                   <goal>jar</goal>
                 </goals>
               </execution>
             </executions>
           </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>sign</id>
+      <build>
+        <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.6</version>
+            <version>3.2.3</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
+                <phase>verify</phase>
                 <goals>
                   <goal>sign</goal>
                 </goals>
                 <configuration>
+                  <!-- Prevent gpg from using pinentry programs -->
                   <gpgArguments>
                     <arg>--pinentry-mode</arg>
                     <arg>loopback</arg>
@@ -208,8 +185,23 @@
               </execution>
             </executions>
           </plugin>
-
-
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>publish</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>0.4.0</version>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>maven</publishingServerId>
+              <tokenAuth>true</tokenAuth>
+            </configuration>
+          </plugin>
         </plugins>
       </build>
     </profile>

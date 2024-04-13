@@ -273,11 +273,6 @@ public class PlainTerminalTest extends TestCase
     return createTerminal( "12345\r\n12345\r\n12345" );
   }
 
-  /**
-   * @param aColumns
-   * @param aLines
-   * @return
-   */
   private PlainTerminal createTerminal( int aColumns, int aLines )
   {
     return new PlainTerminal( aColumns, aLines );
@@ -295,10 +290,6 @@ public class PlainTerminalTest extends TestCase
     return term;
   }
 
-  /**
-   * @param aTerm
-   * @return
-   */
   private String getTermText( final AbstractTerminal aTerm )
   {
     StringBuilder sb = new StringBuilder();

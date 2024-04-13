@@ -1,4 +1,4 @@
-/**
+/*
  * jVT220 - Java VT220 terminal emulator.
  *
  * (C) Copyright 2012 - J.W. Janssen, <j.w.janssen@lxtreme.nl>.
@@ -23,8 +23,7 @@ public class VT220ParserTest extends TestCase
   static class VT220ParserTestAdapter implements VT220ParserHandler
   {
     @Override
-    public void handleCharacter( char aChar ) throws IOException
-    {
+    public void handleCharacter( char aChar ) {
       fail( String.format( "Character (%c) seen?!", aChar ) );
     }
 
@@ -192,8 +191,7 @@ public class VT220ParserTest extends TestCase
       }
 
       @Override
-      public void handleESC( char aDesignator, int... aParameters ) throws IOException
-      {
+      public void handleESC( char aDesignator, int... aParameters ) {
         assertEquals( '7', aDesignator );
         count[0]++;
       }
@@ -205,8 +203,7 @@ public class VT220ParserTest extends TestCase
   /**
    * Set up for each test case.
    */
-  protected void setUp() throws Exception
-  {
+  protected void setUp() {
     m_parser = new VT220Parser();
     m_parser.setLogLevel( 1 );
   }

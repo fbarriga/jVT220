@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
+
+permissions:
+  contents: read #  to fetch code (actions/checkout)
+
+jobs:
+  build-and-verify:
+    name: Build and verify (JDK ${{ matrix.java }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        java: ['8', '11', '17', '18']
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: temurin
+          cache: maven
+      - name: Build and verify
+        run: mvn verify javadoc:javadoc --batch-mode --errors
+
+#  publish-snapshots:
+#    name: Publish snapshot artifacts
+#
+#    permissions:
+#      contents: read
+#      packages: write
+#
+#    if: github.event_name == 'push' && github.repository == 'fbarriga/jVT220' && github.ref == 'refs/heads/master'
+#    needs: build-and-verify
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v4
+#      - name: Set up JDK
+#        uses: actions/setup-java@v4
+#        with:
+#          java-version: '11'
+#          distribution: temurin
+#      - name: Publish snapshot artifacts
+#        run: mvn deploy --batch-mode --errors --activate-profiles release
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,4 +1,4 @@
-/**
+/*
  * jVT220 - Java VT220 terminal emulator.
  *
  * (C) Copyright 2012 - J.W. Janssen, <j.w.janssen@lxtreme.nl>.

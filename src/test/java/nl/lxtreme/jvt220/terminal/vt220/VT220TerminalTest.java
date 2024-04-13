@@ -1,4 +1,4 @@
-/**
+/*
  * jVT220 - Java VT220 terminal emulator.
  *
  * (C) Copyright 2012 - J.W. Janssen, <j.w.janssen@lxtreme.nl>.
@@ -161,14 +161,12 @@ public class VT220TerminalTest extends TestCase
   /**
    * Set up for this test case.
    */
-  protected void setUp() throws Exception
-  {
+  protected void setUp() {
     m_buffer = new ByteArrayOutputStream();
     m_terminal = new VT220Terminal( 80, 24 )
     {
       @Override
-      public int write( CharSequence aResponse ) throws IOException
-      {
+      public int write( CharSequence aResponse ) {
         for ( int i = 0; i < aResponse.length(); i++ )
         {
           m_buffer.write( aResponse.charAt( i ) );

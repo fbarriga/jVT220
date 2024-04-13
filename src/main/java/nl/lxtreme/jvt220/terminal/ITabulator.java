@@ -1,6 +1,6 @@
-/**
+/*
  * jVT220 - Java VT220 terminal emulator.
- * 
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -9,7 +9,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -32,7 +32,7 @@ public interface ITabulator
    * Clears the tab stop at the given position.
    * 
    * @param position
-   *          the column position used to determine the next tab stop, > 0.
+   *          the column position used to determine the next tab stop, greater than 0.
    */
   void clear( int position );
 
@@ -45,8 +45,8 @@ public interface ITabulator
    * Returns the width of the tab stop that is at or after the given position.
    * 
    * @param position
-   *          the column position used to determine the next tab stop, >= 0.
-   * @return the next tab stop width, >= 0.
+   *          the column position used to determine the next tab stop, greater than or equal to 0.
+   * @return the next tab stop width, greater than or equal to 0.
    */
   int getNextTabWidth( int position );
 
@@ -54,8 +54,8 @@ public interface ITabulator
    * Returns the width of the tab stop that is before the given position.
    * 
    * @param position
-   *          the column position used to determine the previous tab stop, >= 0.
-   * @return the previous tab stop width, >= 0.
+   *          the column position used to determine the previous tab stop, greater than or equal to 0.
+   * @return the previous tab stop width, greater than or equal to 0.
    */
   int getPreviousTabWidth( int position );
 
@@ -63,8 +63,8 @@ public interface ITabulator
    * Returns the next tab stop that is at or after the given position.
    * 
    * @param position
-   *          the column position used to determine the next tab stop, >= 0.
-   * @return the next tab stop, >= 0.
+   *          the column position used to determine the next tab stop, greater than or equal to 0.
+   * @return the next tab stop, greater than or equal to 0.
    */
   int nextTab( int position );
 
@@ -72,8 +72,8 @@ public interface ITabulator
    * Returns the previous tab stop that is before the given position.
    * 
    * @param position
-   *          the column position used to determine the previous tab stop, >= 0.
-   * @return the previous tab stop, >= 0.
+   *          the column position used to determine the previous tab stop, greater than or equal to 0.
+   * @return the previous tab stop, greater than or equal to 0.
    */
   int previousTab( int position );
 
@@ -81,7 +81,7 @@ public interface ITabulator
    * Sets the tab stop to the given position.
    * 
    * @param position
-   *          the position of the (new) tab stop, > 0.
+   *          the position of the (new) tab stop, greater than 0.
    */
   void set( int position );
 }

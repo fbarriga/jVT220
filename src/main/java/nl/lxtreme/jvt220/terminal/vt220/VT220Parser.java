@@ -1,6 +1,6 @@
-/**
+/*
  * jVT220 - Java VT220 terminal emulator.
- * 
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -9,7 +9,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -38,10 +38,10 @@ public final class VT220Parser
    */
   public static enum CSIType
   {
-    ICH, CUU, CUD, CUF, CUB, CNL, CPL, CHA, CUP, CHT, ED, DECSED, EL, DECSEL, IL, DL, DCH, SU, SD, ECH, CBT, //
-    HPR, REP, PrimaryDA, SecondaryDA, VPA, VPR, TBC, SM, DECSET, MC, DECSMC, HPB, VPB, RM, DECRST, SGR, DSR, //
-    DECSDSR, DECSTR, DECSCL, DECSCA, DECSTBM, RestoreDECPM, DECCARA, SaveDECPM, DECRARA, DECCRA, DECEFR, //
-    DECREQTPARM, DECFRA, DECELR, DECERA, DECSLE, DECSERA, DECRQLP, SL, SR, WindowManipulation;
+    ICH, CUU, CUD, CUF, CUB, CNL, CPL, CHA, CUP, CHT, ED, DECSED, EL, DECSEL, IL, DL, DCH, SU, SD, ECH, CBT,
+    HPR, REP, PrimaryDA, SecondaryDA, VPA, VPR, TBC, SM, DECSET, MC, DECSMC, HPB, VPB, RM, DECRST, SGR, DSR,
+    DECSDSR, DECSTR, DECSCL, DECSCA, DECSTBM, RestoreDECPM, DECCARA, SaveDECPM, DECRARA, DECCRA, DECEFR,
+    DECREQTPARM, DECFRA, DECELR, DECERA, DECSLE, DECSERA, DECRQLP, SL, SR, WindowManipulation
   }
 
   /**
@@ -55,7 +55,7 @@ public final class VT220Parser
      * Called when a plain (non C0/C1) character is found.
      * 
      * @param ch
-     *          the found character, >= 32.
+     *          the found character, greater than or equal to 32.
      * @throws IOException
      *           in case of I/O problems handling the given character.
      */
@@ -65,7 +65,7 @@ public final class VT220Parser
      * Called when a C0 control character is found.
      * 
      * @param controlChar
-     *          the C0 control character, >= 0 && < 32.
+     *          the C0 control character. This should be a value between 0 (inclusive) and 32 (exclusive).
      * @throws IOException
      *           in case of I/O problems handling the given control character.
      */
@@ -1327,7 +1327,7 @@ public final class VT220Parser
 
   /**
    * @param logLevel
-   *          the log level to set, >= 0.
+   *          the log level to set, greater than or equal to 0.
    */
   public void setLogLevel( int logLevel )
   {
@@ -1337,13 +1337,6 @@ public final class VT220Parser
   /**
    * Called when a complete CSI sequence is found, resets the current state to
    * VT100, clears all remaining parameters and updates the parsing position.
-   * 
-   * @param aText
-   *          the text we're currently parsing;
-   * @param aIndex
-   *          the index of the current parse position.
-   * @param aTermState
-   *          the current state of the parser;
    */
   private void csiFound()
   {
@@ -1415,7 +1408,7 @@ public final class VT220Parser
    * 
    * @param defaultValue
    *          the default (minimal) value of the parameter.
-   * @return an integer value, >= the given default value.
+   * @return an integer value, greater than or equal to the given default value.
    */
   private int getIntegerParameter( final int defaultValue )
   {

@@ -1,6 +1,6 @@
-/**
+/*
  * jVT220 - Java VT220 terminal emulator.
- * 
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -9,7 +9,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -44,7 +44,7 @@ public interface ITerminalColorScheme
    * 8 different foreground colors.
    * 
    * @param aIndex
-   *          the index of the color to return, >= 0 && < 8.
+   *          the index of the color to return. This should be a value between 0 (inclusive) and 8 (exclusive).
    * @return a foreground color, never <code>null</code>.
    */
   Color getColorByIndex( int aIndex );

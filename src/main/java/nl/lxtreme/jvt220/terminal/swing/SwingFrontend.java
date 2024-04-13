@@ -1,6 +1,6 @@
-/**
+/*
  * jVT220 - Java VT220 terminal emulator.
- * 
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -9,7 +9,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -134,7 +134,7 @@ public class SwingFrontend extends JComponent implements ITerminalFrontend
     @Override
     protected void process( final List<Integer> readChars )
     {
-      Integer[] chars = readChars.toArray( new Integer[readChars.size()] );
+      Integer[] chars = readChars.toArray(new Integer[0]);
 
       try
       {
@@ -871,7 +871,7 @@ public class SwingFrontend extends JComponent implements ITerminalFrontend
   /**
    * Writes a given number of characters to the terminal.
    * 
-   * @param chars
+   * @param ch
    *          the characters to write, cannot be <code>null</code>.
    * @throws IOException
    *           in case of I/O problems responding.
@@ -903,7 +903,7 @@ public class SwingFrontend extends JComponent implements ITerminalFrontend
   }
 
   /**
-   * Applies the attributes from the given {@link TextCell} to the given
+   * Applies the attributes from the given {@link ITextCell} to the given
    * {@link AttributedString}.
    * 
    * @param textCell

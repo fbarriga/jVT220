@@ -1,6 +1,6 @@
-/**
+/*
  * jVT220 - Java VT220 terminal emulator.
- * 
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -9,7 +9,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -38,7 +38,7 @@ public interface ITerminal extends Closeable
   /**
    * Used to translate keyboard codes to this terminal.
    */
-  public static interface IKeyMapper
+  interface IKeyMapper
   {
     // METHODS
 
@@ -47,10 +47,10 @@ public interface ITerminal extends Closeable
      * be send from this terminal.
      * 
      * @param aKeyCode
-     *          the key code, as defined in {@link KeyEvent} (<tt>VK_*</tt>);
+     *          the key code, as defined in {@link KeyEvent} (<code>VK_*</code>);
      * @param aModifiers
      *          the bit mask with key modifiers, as defined in
-     *          {@link InputEvent} (<tt>*_MASK</tt>).
+     *          {@link InputEvent} (<code>*_MASK</code>).
      * @return a string that maps the given key code and modifiers in a sequence
      *         that is native to this terminal, or <code>null</code> if no
      *         mapping could be made.
@@ -61,13 +61,13 @@ public interface ITerminal extends Closeable
   /**
    * Denotes a single 'cell' which contains a character and mark up attributes.
    */
-  public static interface ITextCell
+  interface ITextCell
   {
     // METHODS
 
     /**
-     * @return the background color index, >= 0 && < 32. A value of 0 means the
-     *         default background color.
+     * @return the background color index. This should be a value between 0 (inclusive)
+     *         and 32 (exclusive). A value of 0 means the default background color.
      */
     int getBackground();
 
@@ -77,8 +77,8 @@ public interface ITerminal extends Closeable
     char getChar();
 
     /**
-     * @return the foreground color index, >= 0 && < 32. A value of 0 means the
-     *         default background color.
+     * @return the foreground color index. This should be a value between 0 (inclusive)
+     *         and 32 (exclusive). A value of 0 means the default foreground color.
      */
     int getForeground();
 
