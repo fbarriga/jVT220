@@ -1,4 +1,13 @@
 [![CI Status](https://github.com/fbarriga/jVT220/workflows/CI/badge.svg)](https://github.com/fbarriga/jVT220/actions)
+[![GitHub Actions Build Status](https://img.shields.io/github/actions/workflow/status/fbarriga/jVT220/publish.yml)](https://github.com/fbarriga/jVT220/actions/workflows/publish.yml?query=workflow%3A%22Publish+package+to+the+Maven+Central+Repository+and+GitHub+Packages%22)
+[![GitHub license](https://img.shields.io/github/license/fbarriga/jVT220.svg)](https://github.com/fbarriga/jVT220/blob/main/LICENSE)
+[![GitHub contributors](https://img.shields.io/github/contributors/fbarriga/jVT220.svg)](https://github.com/fbarriga/jVT220/graphs/contributors/)
+[![GitHub issues](https://img.shields.io/github/issues/fbarriga/jVT220.svg)](https://github.com/fbarriga/jVT220/issues/)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/fbarriga/jVT220.svg)](https://github.com/fbarriga/jVT220/pulls/)
+
+[![GitHub watchers](https://img.shields.io/github/watchers/fbarriga/jVT220.svg?style=social&label=Watch)](https://github.com/fbarriga/jVT220/watchers/)
+[![GitHub forks](https://img.shields.io/github/forks/fbarriga/jVT220.svg?style=social&label=Fork)](https://github.com/fbarriga/jVT220/network/)
+[![GitHub stars](https://img.shields.io/github/stars/fbarriga/jVT220.svg?style=social&label=Star)](https://github.com/fbarriga/jVT220/stargazers/)
 
 # jVT220 - Java VT220 terminal emulator
 
@@ -21,6 +30,13 @@ To use the emulator as Maven dependency include in `pom.xml`
     <version>1.3.3</version>
   </dependency>
 ```
+
+Published on:
+- https://central.sonatype.com/artifact/cl.felipebarriga/jvt220
+
+## Powered by jVT220
+
+- [OLS](https://github.com/fbarriga/ols) - OpenLogicSniffer client
 
 ## Author
 
